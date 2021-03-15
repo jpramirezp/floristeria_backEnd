@@ -4,6 +4,9 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import clientesRoutes from './routes/clientes.routes';
 import productosRoutes from './routes/productos.routes';
+import proveedoresRoutes from './routes/proveedores.routes';
+import empleadosRoutes from './routes/empleados.routes';
+import usuariosRoutes from './routes/usuarios.routes';
 
 class Server {
 
@@ -27,7 +30,10 @@ class Server {
      //Establece las rutas a utilizar, e indica la clase de sub rutas
      routes(): void {
         this.app.use('/api/clientes',clientesRoutes);  
-        this.app.use('/api/productos',productosRoutes);     
+        this.app.use('/api/productos',productosRoutes);  
+        this.app.use('/api/proveedores',proveedoresRoutes);  
+        this.app.use('/api/empleados',empleadosRoutes);  
+        this.app.use('/api/usuarios',usuariosRoutes);     
      }
 
      //Metodo para iniciar la aplicacion

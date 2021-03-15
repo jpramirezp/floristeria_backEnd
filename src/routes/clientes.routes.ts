@@ -10,7 +10,6 @@ class ClientesRoute{
     }
    
     config ():void {
-        this.router.get('/',clientesController.raiz); 
         this.router.get('/getClientes',clientesController.getClientes);                         
     }
 
