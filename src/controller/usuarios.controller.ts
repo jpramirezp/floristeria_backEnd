@@ -24,7 +24,7 @@ class UsuariosController {
     let pUser_Usuario = 'Vacio'
     let pClave_Usuario = 'Vacio'
 
-    let sql = `CALL SP_Obtener_Usuarios(${pOpcion},0,'${pNom_Usuario}','${pApe_Usuario}','${pTipo_Usuario}',${pNoID_Usuario},'${pArea_Usuario}','${pUser_Usuario}',${pClave_Usuario})`;
+    let sql = `CALL SP_Usuarios(${pOpcion},0,'${pNom_Usuario}','${pApe_Usuario}','${pTipo_Usuario}',${pNoID_Usuario},'${pArea_Usuario}','${pUser_Usuario}',${pClave_Usuario})`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {
@@ -48,7 +48,7 @@ class UsuariosController {
     let pUser_Usuario = req.body.pUser_Usuario
     let pClave_Usuario = req.body.pClave_Usuario
 
-    let sql = `CALL SP_Modificar_Usuarios(${pOpcion},0,'${pID_Usuario}','${pNom_Usuario}','${pApe_Usuario}','${pNoID_Usuario}',${pTipo_Usuario},'${pArea_Usuario}','${pUser_Usuario}',${pClave_Usuario})`;
+    let sql = `CALL SP_Usuarios(${pOpcion},0,'${pID_Usuario}','${pNom_Usuario}','${pApe_Usuario}','${pNoID_Usuario}',${pTipo_Usuario},'${pArea_Usuario}','${pUser_Usuario}',${pClave_Usuario})`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {
@@ -71,7 +71,7 @@ class UsuariosController {
     let pUser_Usuario = req.body.pUser_Usuario
     let pClave_Usuario = req.body.pClave_Usuario
 
-    let sql = `CALL SP_Agregar_Usuarios(${pOpcion},0,'${pNom_Usuario}','${pApe_Usuario}','${pNoID_Usuario}',${pTipo_Usuario},'${pArea_Usuario}','${pUser_Usuario}',${pClave_Usuario})`;
+    let sql = `CALL SP_Usuarios(${pOpcion},0,'${pNom_Usuario}','${pApe_Usuario}','${pNoID_Usuario}',${pTipo_Usuario},'${pArea_Usuario}','${pUser_Usuario}',${pClave_Usuario})`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {
@@ -88,7 +88,7 @@ class UsuariosController {
     let pOpcion = 4   //Borrar
     let pID_Usuario = req.body.pID_Usuario
 
-    let sql = `CALL SP_Borrar_Usuarios(${pOpcion},0,'${pID_Usuario}')`;
+    let sql = `CALL SP_Usuarios(${pOpcion},0,'${pID_Usuario}')`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {

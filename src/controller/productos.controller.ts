@@ -36,19 +36,6 @@ class ProductosController {
 
   };
 
-  public putProductos(req: Request, res: Response) {
-
-    let pOpcion = 3   //Modificación
-    let pNom_Prod = req.body.pNom_Prod
-    let pTipo_Prod = req.body.pTipo_Prod
-    let pNoID_Prod = req.body.pNoID_Prod
-    let pCant_Prod = req.body.pCant_Prod
-    let pDescripcion = req.body.pDescripcion
-    let pURL_imagen = req.body.pURL_imagen
-    let pPrecio = req.body.pPrecio
-
-  }
-
   public postProductos(req: Request, res: Response) {
     
     let pOpcion = 3   //Insercion

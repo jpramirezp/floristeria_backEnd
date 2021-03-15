@@ -23,7 +23,7 @@ class ClientesController {
     let pEmail_Cli = 'Vacio'
     let pDir_Cli = 'Vacio'
 
-    let sql = `CALL SP_Obtener_Clientes(${pOpcion},0,'${pNom_Cli}','${pApe_Cli}','${pNoID_Cli}',${pTel_Cli},'${pEmail_Cli}','${pDir_Cli})`;
+    let sql = `CALL SP_Clientes(${pOpcion},0,'${pNom_Cli}','${pApe_Cli}','${pNoID_Cli}',${pTel_Cli},'${pEmail_Cli}','${pDir_Cli})`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {
@@ -46,7 +46,7 @@ class ClientesController {
     let pEmail_Cli = req.body.pEmail_Cli
     let pDir_Cli = req.body.pDir_Cli
 
-    let sql = `CALL SP_Modificar_Clientes(${pOpcion},0,'${pID_Cli}','${pNom_Cli}','${pApe_Cli}','${pNoID_Cli}',${pTel_Cli},'${pEmail_Cli}','${pDir_Cli})`;
+    let sql = `CALL SP_Clientes(${pOpcion},0,'${pID_Cli}','${pNom_Cli}','${pApe_Cli}','${pNoID_Cli}',${pTel_Cli},'${pEmail_Cli}','${pDir_Cli})`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {
@@ -68,7 +68,7 @@ class ClientesController {
     let pEmail_Cli = req.body.pEmail_Cli
     let pDir_Cli = req.body.pDir_Cli
 
-    let sql = `CALL SP_Agregar_Clientes(${pOpcion},0,'${pNom_Cli}','${pApe_Cli}','${pNoID_Cli}',${pTel_Cli},'${pEmail_Cli}','${pDir_Cli})`;
+    let sql = `CALL SP_Clientes(${pOpcion},0,'${pNom_Cli}','${pApe_Cli}','${pNoID_Cli}',${pTel_Cli},'${pEmail_Cli}','${pDir_Cli})`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {
@@ -85,7 +85,7 @@ class ClientesController {
     let pOpcion = 4   //Borrar
     let pID_Cliente = req.body.pID_Cliente
 
-    let sql = `CALL SP_Borrar_Clientes(${pOpcion},0,'${pID_Cliente}')`;
+    let sql = `CALL SP_Clientes(${pOpcion},0,'${pID_Cliente}')`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {

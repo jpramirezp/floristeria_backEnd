@@ -23,7 +23,7 @@ class ProveedoresController {
     let pNoID_Prov = '0'
     let pTel_Prov = 'Vacio'
 
-    let sql = `CALL SP_Obtener_Proveedores(${pOpcion},0,'${pNom_Prov}','${pApe_Prov}',
+    let sql = `CALL SP_Proveedores(${pOpcion},0,'${pNom_Prov}','${pApe_Prov}',
     '${pDir_Prov}',${pCorreo_Prov},'${pNoID_Prov}','${pTel_Prov})`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
@@ -47,7 +47,7 @@ class ProveedoresController {
     let pNoID_Prov = req.body.pNoID_Prov
     let pTel_Prov = req.body.pTel_Prov
     
-    let sql = `CALL SP_Modificar_Proveedores(${pOpcion},0,'${pID_Prov}','${pNom_Prov}','${pApe_Prov}',
+    let sql = `CALL SP_Proveedores(${pOpcion},0,'${pID_Prov}','${pNom_Prov}','${pApe_Prov}',
     '${pDir_Prov}',${pCorreo_Prov},'${pNoID_Prov}','${pTel_Prov})`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
@@ -70,7 +70,7 @@ class ProveedoresController {
     let pNoID_Prov = req.body.pNoID_Prov
     let pTel_Prov = req.body.pTel_Prov
     
-    let sql = `CALL SP_Agregar_Proveedores(${pOpcion},0,'${pNom_Prov}','${pNoID_Prov}','${pApe_Prov}',
+    let sql = `CALL SP_Proveedores(${pOpcion},0,'${pNom_Prov}','${pNoID_Prov}','${pApe_Prov}',
     '${pDir_Prov}',${pCorreo_Prov},'${pNoID_Prov}','${pTel_Prov})`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
@@ -88,7 +88,7 @@ class ProveedoresController {
     let pOpcion = 4   //Borrar
     let pID_Prov = req.body.pID_Prov
 
-    let sql = `CALL SP_Borrar_Proveedores(${pOpcion},0,'${pID_Prov}')`;
+    let sql = `CALL SP_Proveedores(${pOpcion},0,'${pID_Prov}')`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {

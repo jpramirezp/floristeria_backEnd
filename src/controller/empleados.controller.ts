@@ -27,7 +27,7 @@ class EmpleadosController {
     let pFec_Ingreso = 'Vacio'
     let pFec_Salida = 'Vacio'
 
-    let sql = `CALL SP_Obtener_Empleados(${pOpcion},0,'${pNom_Emp}','${pApe_Emp}',
+    let sql = `CALL SP_Empleados(${pOpcion},0,'${pNom_Emp}','${pApe_Emp}',
     '${pNoID_Emp}',${pTel_Emp},'${pCargo_Emp}','${pArea_Emp},'${pDir_Emp}','${pEstado_Emp}',
     '${pFec_Ingreso}','${pFec_Salida}')`;
 
@@ -56,7 +56,7 @@ class EmpleadosController {
     let pFec_Ingreso = req.body.pFec_Ingreso
     let pFec_Salida = req.body.pFec_Salida
     
-    let sql = `CALL SP_Modificar_Empleados(${pOpcion},0,'${pNom_Emp}','${pID_Emp}','${pApe_Emp}',
+    let sql = `CALL SP_Empleados(${pOpcion},0,'${pNom_Emp}','${pID_Emp}','${pApe_Emp}',
     '${pNoID_Emp}',${pTel_Emp},'${pCargo_Emp}','${pArea_Emp},'${pDir_Emp},'${pEstado_Emp},
     '${pFec_Ingreso},'${pFec_Salida})`;
 
@@ -84,7 +84,7 @@ class EmpleadosController {
     let pFec_Ingreso = req.body.pFec_Ingreso
     let pFec_Salida = req.body.pFec_Salida
     
-    let sql = `CALL SP_Agregar_Empleados(${pOpcion},0,'${pNom_Emp}','${pApe_Emp}',
+    let sql = `CALL SP_Empleados(${pOpcion},0,'${pNom_Emp}','${pApe_Emp}',
     '${pNoID_Emp}',${pTel_Emp},'${pCargo_Emp}','${pArea_Emp},'${pDir_Emp},'${pEstado_Emp},
     '${pFec_Ingreso},'${pFec_Salida})`;
 
@@ -103,7 +103,7 @@ class EmpleadosController {
     let pOpcion = 4   //Borrar
     let pID_Emp = req.body.pID_Emp
 
-    let sql = `CALL SP_Borrar_Empleados(${pOpcion},0,'${pID_Emp}')`;
+    let sql = `CALL SP_Empleados(${pOpcion},0,'${pID_Emp}')`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {
