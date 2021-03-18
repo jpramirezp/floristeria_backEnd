@@ -9,6 +9,9 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const morgan_1 = __importDefault(require("morgan"));
 const clientes_routes_1 = __importDefault(require("./routes/clientes.routes"));
 const productos_routes_1 = __importDefault(require("./routes/productos.routes"));
+const proveedores_routes_1 = __importDefault(require("./routes/proveedores.routes"));
+const empleados_routes_1 = __importDefault(require("./routes/empleados.routes"));
+const usuarios_routes_1 = __importDefault(require("./routes/usuarios.routes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -27,6 +30,9 @@ class Server {
     routes() {
         this.app.use('/api/clientes', clientes_routes_1.default);
         this.app.use('/api/productos', productos_routes_1.default);
+        this.app.use('/api/proveedores', proveedores_routes_1.default);
+        this.app.use('/api/empleados', empleados_routes_1.default);
+        this.app.use('/api/usuarios', usuarios_routes_1.default);
     }
     //Metodo para iniciar la aplicacion
     start() {

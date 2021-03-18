@@ -10,7 +10,11 @@ class UsuariosRoute{
     }
    
     config ():void {
-        this.router.get('/getClientes',usuariosController.getUsuarios);                         
+        this.router.get('/getUsuarios',usuariosController.getUsuarios); 
+        this.router.post('/postUsuarios',usuariosController.postUsuarios);   
+        this.router.delete('/deleteUsuarios',usuariosController.deleteUsuario);
+        this.router.put('/putUsuarios',usuariosController.putUsuarios);   
+
     }
 
 }

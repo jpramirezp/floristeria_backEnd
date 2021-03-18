@@ -11,8 +11,10 @@ class ClientesRoute {
         this.config();
     }
     config() {
-        this.router.get('/', clientes_controller_1.default.raiz);
         this.router.get('/getClientes', clientes_controller_1.default.getClientes);
+        this.router.post('/postClientes', clientes_controller_1.default.postClientes);
+        this.router.delete('/deleteClientes', clientes_controller_1.default.deleteCliente);
+        this.router.put('/putClientes', clientes_controller_1.default.putClientes);
     }
 }
 const clientesRoute = new ClientesRoute();

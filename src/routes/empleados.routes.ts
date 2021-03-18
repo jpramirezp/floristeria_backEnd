@@ -10,7 +10,10 @@ class EmpleadosRoute{
     }
    
     config ():void {
-        this.router.get('/getClientes',empleadosController.getEmpleados);                         
+        this.router.get('/getEmpleados',empleadosController.getEmpleados); 
+        this.router.post('/postEmpleados',empleadosController.postEmpleados);   
+        this.router.delete('/deleteEmpleados',empleadosController.deleteEmpleado);
+        this.router.put('/putEmpleados',empleadosController.putEmpleados);                          
     }
 
 }
