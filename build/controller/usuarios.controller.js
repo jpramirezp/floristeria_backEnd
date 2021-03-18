@@ -86,6 +86,22 @@ class UsuariosController {
             res.json({ status: 'OK' });
         });
     }
+    getLogin(req, res) {
+        let pOpcion = 5; //Login 
+        let pUser_Usuario = req.body.User_Usuario;
+        let pClave_Usuario = req.body.Clave_Usuario;
+        let sql = `CALL SP_Usuarios(${pOpcion},0,'0','0','0','0','0','${pUser_Usuario}','${pClave_Usuario}')`;
+        connection.query(sql, true, (error, results, fields) => {
+            if (error) {
+                res.json({ status: 'ERROR' });
+                return console.error(error.message);
+            }
+            if (results[0].length > 0)
+                res.json({ status: 'OK' });
+            else
+                res.json({ status: 'ERROR' });
+        });
+    }
 }
 const usuariosController = new UsuariosController();
 exports.default = usuariosController;

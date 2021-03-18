@@ -12,6 +12,8 @@ class ProductosRoute{
     config ():void {                 
         this.router.get('/getProductos',productosController.getProductos);        //http://localhost:3500/api/productos/postProducto
         this.router.post('/postProducto',productosController.postProductos);        //http://localhost:3500/api/productos/postProducto
+        this.router.post('/putProducto',productosController.putProductos);        //http://localhost:3500/api/productos/postProducto
+        this.router.post('/deleteProducto',productosController.deleteProducto);        //http://localhost:3500/api/productos/postProducto
     }
 
 };

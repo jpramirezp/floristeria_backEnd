@@ -56,9 +56,53 @@ class ProductosController {
       }
       res.json({status:'OK'})
     });
-
-
   }
+
+  public putProductos(req: Request, res: Response) {
+    
+    let pOpcion = 4   //Actualizacion
+    let pID = req.body.pID
+    let pNom_Prod = req.body.pNom_Prod
+    let pTipo_Prod = req.body.pTipo_Prod
+    let pNoID_Prod = req.body.pNoID_Prod
+    let pCant_Prod = req.body.pCant_Prod
+    let pDescripcion = req.body.pDescripcion
+    let pURL_imagen = req.body.pURL_imagen
+    let pPrecio = req.body.pPrecio
+
+    let sql = `CALL SP_Productos(${pOpcion},${pID},'${pNom_Prod}','${pTipo_Prod}','${pNoID_Prod}',${pCant_Prod},'${pDescripcion}','${pURL_imagen}',${pPrecio})`;
+
+    connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
+      if (error) {
+        res.json({status:'ERROR'})
+        return console.error(error.message);
+      }
+      res.json({status:'OK'})
+    });
+  }
+
+  public deleteProducto(req: Request, res: Response) {
+    let pOpcion = 5   //Todos los productos
+    let pID = req.body.pID
+    let pNom_Prod = 'Vacio'
+    let pTipo_Prod = 'Vacio'
+    let pNoID_Prod = '0'
+    let pCant_Prod = 0
+    let pDescripcion = 'Vacio'
+    let pURL_imagen = 'Vacio'
+    let pPrecio = 0
+
+    let sql = `CALL SP_Productos(${pOpcion},${pID},'${pNom_Prod}','${pTipo_Prod}','${pNoID_Prod}',${pCant_Prod},'${pDescripcion}','${pURL_imagen}',${pPrecio})`;
+
+    connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
+      if (error) {
+        res.json({status:'ERROR'})
+        return console.error(error.message);
+      }
+      res.json({status:'OK'})
+    });
+
+  };
 
 
 }

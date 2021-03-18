@@ -13,6 +13,8 @@ class ProductosRoute {
     config() {
         this.router.get('/getProductos', productos_controller_1.default.getProductos); //http://localhost:3500/api/productos/postProducto
         this.router.post('/postProducto', productos_controller_1.default.postProductos); //http://localhost:3500/api/productos/postProducto
+        this.router.post('/putProducto', productos_controller_1.default.putProductos); //http://localhost:3500/api/productos/postProducto
+        this.router.post('/deleteProducto', productos_controller_1.default.deleteProducto); //http://localhost:3500/api/productos/postProducto
     }
 }
 ;
