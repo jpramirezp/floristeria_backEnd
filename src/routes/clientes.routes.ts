@@ -11,9 +11,9 @@ class ClientesRoute{
    
     config ():void {
         this.router.get('/getClientes',clientesController.getClientes); 
-        this.router.post('/postClientes',clientesController.postClientes);   
-        this.router.delete('/deleteClientes',clientesController.deleteCliente);
-        this.router.put('/putClientes',clientesController.putClientes);                        
+        this.router.post('/postCliente',clientesController.postClientes);   
+        this.router.post('/deleteCliente',clientesController.deleteCliente);
+        this.router.post('/putClientes',clientesController.putClientes);                        
     }
 
 }

@@ -16,13 +16,13 @@ class UsuariosController {
 
   public getUsuarios(req: Request, res: Response) {
     let pOpcion = 1   //Todos los usuarios
-    let pNom_Usuario = 'pNom_Usuario'
-    let pApe_Usuario = 'pApe_Usuario'
-    let pTipo_Usuario = 'pTipo_Usuario'
-    let pNoID_Usuario = 'pNoID_Usuario'
-    let pArea_Usuario = 'pArea_Usuario'
-    let pUser_Usuario = 'pUser_Usuario'
-    let pClave_Usuario = 'pClave_Usuario'
+    let pNom_Usuario = 'Vacio'
+    let pApe_Usuario = 'Vacio'
+    let pTipo_Usuario = 'Vacio'
+    let pNoID_Usuario = '0'
+    let pArea_Usuario = 'Vacio'
+    let pUser_Usuario = 'Vacio'
+    let pClave_Usuario = 'Vacio'
 
     let sql = `CALL SP_Usuarios(${pOpcion},0,'${pNom_Usuario}','${pApe_Usuario}','${pTipo_Usuario}','${pNoID_Usuario}','${pArea_Usuario}','${pUser_Usuario}','${pClave_Usuario}')`;
 
@@ -38,7 +38,7 @@ class UsuariosController {
 
   public putUsuarios(req: Request, res: Response) {
 
-    let pOpcion = 2   //Modificar
+    let pOpcion = 4   //Modificar
     let pID_Usuario = req.body.pID_Usuario
     let pNom_Usuario = req.body.pNom_Usuario
     let pApe_Usuario = req.body.pApe_Usuario
@@ -48,7 +48,7 @@ class UsuariosController {
     let pUser_Usuario = req.body.pUser_Usuario
     let pClave_Usuario = req.body.pClave_Usuario
 
-    let sql = `CALL SP_Usuarios(${pOpcion},0,'${pID_Usuario}','${pNom_Usuario}','${pApe_Usuario}','${pNoID_Usuario}','${pTipo_Usuario}','${pArea_Usuario}','${pUser_Usuario}','${pClave_Usuario}')`;
+    let sql = `CALL SP_Usuarios(${pOpcion},'${pID_Usuario}','${pNom_Usuario}','${pApe_Usuario}','${pNoID_Usuario}','${pTipo_Usuario}','${pArea_Usuario}','${pUser_Usuario}','${pClave_Usuario}')`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {
@@ -85,7 +85,7 @@ class UsuariosController {
 
   public deleteUsuario(req: Request,  res: Response){
 
-    let pOpcion = 4   //Borrar
+    let pOpcion = 6   //Borrar
     let pID_Usuario = req.body.pID_Usuario
     let pNom_Usuario = req.body.pNom_Usuario
     let pApe_Usuario = req.body.pApe_Usuario

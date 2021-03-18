@@ -13,8 +13,8 @@ class ProveedoresRoute {
     config() {
         this.router.get('/getProveedores', proveedores_controller_1.default.getProveedores);
         this.router.post('/postProveedores', proveedores_controller_1.default.postProveedores);
-        this.router.delete('/deleteProveedores', proveedores_controller_1.default.deleteProveedores);
-        this.router.put('/putProveedores', proveedores_controller_1.default.putProveedores);
+        this.router.post('/deleteProveedor', proveedores_controller_1.default.deleteProveedores);
+        this.router.post('/putProveedor', proveedores_controller_1.default.putProveedores);
     }
 }
 const proveedoresRoute = new ProveedoresRoute();

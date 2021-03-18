@@ -12,8 +12,8 @@ class ProveedoresRoute{
     config ():void {
         this.router.get('/getProveedores',proveedoresController.getProveedores); 
         this.router.post('/postProveedores',proveedoresController.postProveedores);   
-        this.router.delete('/deleteProveedores',proveedoresController.deleteProveedores);
-        this.router.put('/putProveedores',proveedoresController.putProveedores);                         
+        this.router.post('/deleteProveedor',proveedoresController.deleteProveedores);
+        this.router.post('/putProveedor',proveedoresController.putProveedores);                         
     }
 
 }

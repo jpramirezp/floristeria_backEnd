@@ -13,12 +13,12 @@ class ClientesController {
     }
     getClientes(req, res) {
         let pOpcion = 1; //Todos los usuarios
-        let pNom_Cli = 'pNom_Cli';
-        let pApe_Cli = 'pApe_Cli';
-        let pNoID_Cli = 'pNoID_CLi';
-        let pTel_Cli = 'pTel_Cli';
-        let pEmail_Cli = 'pEmail_Cli';
-        let pDir_Cli = 'pDir_Cli';
+        let pNom_Cli = 'Vacio';
+        let pApe_Cli = 'Vacio';
+        let pNoID_Cli = '0';
+        let pTel_Cli = '0';
+        let pEmail_Cli = 'Vacio';
+        let pDir_Cli = 'Vacio';
         let sql = `CALL SP_Clientes(${pOpcion},0,'${pNom_Cli}','${pApe_Cli}','${pNoID_Cli}','${pTel_Cli}','${pEmail_Cli}','${pDir_Cli}')`;
         connection.query(sql, true, (error, results, fields) => {
             if (error) {
@@ -30,7 +30,7 @@ class ClientesController {
     }
     ;
     putClientes(req, res) {
-        let pOpcion = 2; //Modificar
+        let pOpcion = 4; //Modificar
         let pID_Cli = req.body.pID_Cli;
         let pNom_Cli = req.body.pNom_Cli;
         let pApe_Cli = req.body.pApe_Cli;
@@ -65,9 +65,15 @@ class ClientesController {
         });
     }
     deleteCliente(req, res) {
-        let pOpcion = 4; //Borrar
-        let pID_Cliente = req.body.pID_Cliente;
-        let sql = `CALL SP_Clientes(${pOpcion},0,'${pID_Cliente}')`;
+        let pOpcion = 5; //Todos los clientes
+        let pID = req.body.pID;
+        let pNom_Cli = 'Vacio';
+        let pApe_Cli = 'Vacio';
+        let pNoID_Cli = '0';
+        let pTel_Cli = '0';
+        let pEmail_Cli = 'Vacio';
+        let pDir_Cli = 'Vacio';
+        let sql = `CALL SP_Productos(${pOpcion},${pID},'${pNom_Cli}','${pApe_Cli}','${pNoID_Cli}',${pTel_Cli},'${pEmail_Cli}','${pDir_Cli}')`;
         connection.query(sql, true, (error, results, fields) => {
             if (error) {
                 res.json({ status: 'ERROR' });
@@ -76,6 +82,7 @@ class ClientesController {
             res.json({ status: 'OK' });
         });
     }
+    ;
 }
 const clientesController = new ClientesController();
 exports.default = clientesController;

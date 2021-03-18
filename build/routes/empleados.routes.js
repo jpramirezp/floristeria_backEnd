@@ -12,9 +12,9 @@ class EmpleadosRoute {
     }
     config() {
         this.router.get('/getEmpleados', empleados_controller_1.default.getEmpleados);
-        this.router.post('/postEmpleados', empleados_controller_1.default.postEmpleados);
-        this.router.delete('/deleteEmpleados', empleados_controller_1.default.deleteEmpleado);
-        this.router.put('/putEmpleados', empleados_controller_1.default.putEmpleados);
+        this.router.post('/postEmpleado', empleados_controller_1.default.postEmpleados);
+        this.router.post('/deleteEmpleado', empleados_controller_1.default.deleteEmpleado);
+        this.router.post('/putEmpleado', empleados_controller_1.default.putEmpleados);
     }
 }
 const empleadosRoute = new EmpleadosRoute();

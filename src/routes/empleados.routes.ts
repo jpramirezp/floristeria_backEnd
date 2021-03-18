@@ -11,9 +11,9 @@ class EmpleadosRoute{
    
     config ():void {
         this.router.get('/getEmpleados',empleadosController.getEmpleados); 
-        this.router.post('/postEmpleados',empleadosController.postEmpleados);   
-        this.router.delete('/deleteEmpleados',empleadosController.deleteEmpleado);
-        this.router.put('/putEmpleados',empleadosController.putEmpleados);                          
+        this.router.post('/postEmpleado',empleadosController.postEmpleados);   
+        this.router.post('/deleteEmpleado',empleadosController.deleteEmpleado);
+        this.router.post('/putEmpleado',empleadosController.putEmpleados);                          
     }
 
 }

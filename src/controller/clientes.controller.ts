@@ -16,12 +16,12 @@ class ClientesController {
 
   public getClientes(req: Request, res: Response) {
     let pOpcion = 1   //Todos los usuarios
-    let pNom_Cli = 'pNom_Cli'
-    let pApe_Cli = 'pApe_Cli'
-    let pNoID_Cli = 'pNoID_CLi'
-    let pTel_Cli = 'pTel_Cli'
-    let pEmail_Cli = 'pEmail_Cli'
-    let pDir_Cli = 'pDir_Cli'
+    let pNom_Cli = 'Vacio'
+    let pApe_Cli = 'Vacio'
+    let pNoID_Cli = '0'
+    let pTel_Cli = '0'
+    let pEmail_Cli = 'Vacio'
+    let pDir_Cli = 'Vacio'
 
     let sql = `CALL SP_Clientes(${pOpcion},0,'${pNom_Cli}','${pApe_Cli}','${pNoID_Cli}','${pTel_Cli}','${pEmail_Cli}','${pDir_Cli}')`;
 
@@ -37,7 +37,7 @@ class ClientesController {
 
   public putClientes(req: Request, res: Response) {
 
-    let pOpcion = 2   //Modificar
+    let pOpcion = 4   //Modificar
     let pID_Cli = req.body.pID_Cli
     let pNom_Cli = req.body.pNom_Cli
     let pApe_Cli = req.body.pApe_Cli
@@ -80,12 +80,17 @@ class ClientesController {
     
   }
 
-  public deleteCliente(req: Request,  res: Response){
+  public deleteCliente(req: Request, res: Response) {
+    let pOpcion = 5   //Todos los clientes
+    let pID = req.body.pID
+    let pNom_Cli = 'Vacio'
+    let pApe_Cli = 'Vacio'
+    let pNoID_Cli = '0'
+    let pTel_Cli = '0'
+    let pEmail_Cli = 'Vacio'
+    let pDir_Cli = 'Vacio'
 
-    let pOpcion = 4   //Borrar
-    let pID_Cliente = req.body.pID_Cliente
-
-    let sql = `CALL SP_Clientes(${pOpcion},0,'${pID_Cliente}')`;
+    let sql = `CALL SP_Productos(${pOpcion},${pID},'${pNom_Cli}','${pApe_Cli}','${pNoID_Cli}',${pTel_Cli},'${pEmail_Cli}','${pDir_Cli}')`;
 
     connection.query(sql, true, (error: { message: any; }, results: any[], fields: any) => {
       if (error) {
@@ -95,7 +100,8 @@ class ClientesController {
       res.json({status:'OK'})
     });
 
-  }
+  };
+
 
 }
 
