@@ -7,6 +7,7 @@ import productosRoutes from './routes/productos.routes';
 import proveedoresRoutes from './routes/proveedores.routes';
 import empleadosRoutes from './routes/empleados.routes';
 import usuariosRoutes from './routes/usuarios.routes';
+import facturasRoutes from './routes/facturas.routes';
 
 class Server {
 
@@ -34,6 +35,7 @@ class Server {
         this.app.use('/api/proveedores',proveedoresRoutes);  
         this.app.use('/api/empleados',empleadosRoutes);  
         this.app.use('/api/usuarios',usuariosRoutes);     
+        this.app.use('/api/facturas',facturasRoutes);     
      }
 
      //Metodo para iniciar la aplicacion

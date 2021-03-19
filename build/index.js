@@ -12,6 +12,7 @@ const productos_routes_1 = __importDefault(require("./routes/productos.routes"))
 const proveedores_routes_1 = __importDefault(require("./routes/proveedores.routes"));
 const empleados_routes_1 = __importDefault(require("./routes/empleados.routes"));
 const usuarios_routes_1 = __importDefault(require("./routes/usuarios.routes"));
+const facturas_routes_1 = __importDefault(require("./routes/facturas.routes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -33,6 +34,7 @@ class Server {
         this.app.use('/api/proveedores', proveedores_routes_1.default);
         this.app.use('/api/empleados', empleados_routes_1.default);
         this.app.use('/api/usuarios', usuarios_routes_1.default);
+        this.app.use('/api/facturas', facturas_routes_1.default);
     }
     //Metodo para iniciar la aplicacion
     start() {
